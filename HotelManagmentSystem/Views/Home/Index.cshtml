@@ -1,0 +1,14 @@
+﻿@using Microsoft.AspNetCore.Http // للتأكد من أن لديك الوصول إلى HttpContext
+@inject IHttpContextAccessor HttpContextAccessor // حقن HttpContextAccessor للوصول إلى الجلسة
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    var username = HttpContextAccessor.HttpContext.Session.GetString("Name"); // استرجاع اسم المستخدم من الجلسة
+}
+
+<center><h1>Welcome @username</h1></center>
+
+<center>
+    <img src="~/Content/LoginContent/images/signup-image.jpg" alt="sign up image">
+</center>
